@@ -15,7 +15,7 @@
     <input type="text" name="search" id="search" placeholder="กรอกชื่อภาพยนต์">
     <button type="submit" name="serach_click">ค้นหา</button>
 </form>
-
+<a href="form_insert.php">เพิ่มนักศึกษา</a>
 <table style="width:100%"border="1">
   <tr>
     <th>รหัสภาพยนต์</th>
