@@ -1,7 +1,19 @@
 <?php 
   require_once("db_con.php");//เรียกใช้กconn
+  if(isset ($_GET['delete'])){//ไม่ให้ขึ้น errorตอนกดลบ
+    echo $_GET['id'];
+    // sql to delete a record
+    $sql = "DELETE FROM movie WHERE m_id = '{$_GET['id']}'";
+      if (mysqli_query($conn, $sql)) {
+        echo "Record deleted successfully";
+        } else {
+            echo "Error deleting record: " . mysqli_error($conn);
+        }
+  }
   $sql = "SELECT * FROM movie"; //สร้างเก้บ
   $result = $conn->query($sql);//ดึงข้อมูล
+  
+
   if(isset ($_GET['serach_click'])){
     $sql = "SELECT * FROM movie WHERE m_name LIKE '%{$_GET['search']}%'";// 
   
@@ -23,6 +35,8 @@
     <th>เวลาที่เริ่มฉาย (วัน+เวลา)</th>
     <th>ชื่อผู้ใช้งาน (ลูกค้า)</th>
     <th>PIN </th>
+    <th>เครื่องมือ</th>
+
   </tr>
   <?php 
     if ($result->num_rows > 0) {//มีข้อมูลรึเปล่า
@@ -34,7 +48,13 @@
     <td><?php echo $row['m_day'];?></td>
     <td><?php echo $row['m_user'];?></td>
     <td><?php echo $row['m_pin'];?></td>
+    <td align="center">
+            
+            <a href="?delete=1&id=<?php echo $row['m_id'];?>">ลบ</a><!-- get ID -->
+    </td>
+
   </tr>
+
   <?php
     }
     } else {
