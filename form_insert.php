@@ -8,7 +8,7 @@
     <input type="text" name="m_name" id="m_name">
     <br><br>
     <label for="m_day">วัน-เวลาฉาย</label>
-    <input type="date" name="m_day" id="m_day">
+    <input type="datetime" name="m_day" id="m_day">
     <br><br>
     <label for="m_user">ชื่อลูกค้า</label>
     <input type="text" name="m_user" id="m_user">

@@ -50,6 +50,8 @@
     <td><?php echo $row['m_pin'];?></td>
     <td align="center">
             
+    <a href="update_form.php?id=<?php echo $row['m_id']; ?>">แก้ไข</a>  <!-- href ลิ้ง  เมดตอ้ดget-->
+
             <a href="?delete=1&id=<?php echo $row['m_id'];?>">ลบ</a><!-- get ID -->
     </td>
 
